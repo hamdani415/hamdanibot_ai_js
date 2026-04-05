@@ -14,7 +14,7 @@ bot.on("message", async (msg) => {
     const chat = msg.text
 
     if (chat === "/reset") {
-        delete chats[chatId]
+        chats[chatId] = []
         bot.sendMessage(chatId, "memory telah di hapus")
         return
     }
@@ -41,6 +41,7 @@ bot.on("message", async (msg) => {
     }
     )
     const data = await response.json()
+    // console.log(data)
     if (!data.choices) {
         bot.sendMessage(chatId, "Error dari AI 😢")
         return
