@@ -13,14 +13,14 @@ bot.on("message", async (msg) => {
     const chatId = msg.chat.id
     const chat = msg.text
 
-    if(chat === "/reset"){
-        chats[chatId] = []
-        bot.sendMessage(chatId , "memory telah di hapus")
+    if (chat === "/reset") {
+        delete chats[chatId]
+        bot.sendMessage(chatId, "memory telah di hapus")
         return
     }
 
     if (!chats[chatId]) {
-        delete chats[chatId]
+        chats[chatId] = []
     }
 
     chats[chatId].push({
